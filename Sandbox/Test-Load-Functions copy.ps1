@@ -1,11 +1,20 @@
 $moduleName = "BriteProvisioning"
-$localVersion = (Get-Module -Name $moduleName).Version
 $remotePsd1Url = "https://raw.githubusercontent.com/BriteComputers/Provisioning/refs/heads/main/BriteProvisioning.psd1"
 $repo = "BriteComputers/Provisioning"
 $repoUrl = "https://github.com/$repo/archive/refs/heads/main.zip"
 $installPath = "C:\Program Files\WindowsPowerShell\Modules\$ModuleName"
 $tempZip = "$env:TEMP\$ModuleName.zip"
 $tempExtractPath = "$env:TEMP\$ModuleName-Extract"
+$psd1Path = "C:\Program Files\WindowsPowerShell\Modules\BriteProvisioning\BriteProvisioning.psd1"
+
+if (Test-Path $psd1Path) {
+    $manifest = Import-PowerShellDataFile -Path $psd1Path
+    $Localversion = $manifest.ModuleVersion
+    Write-Host "Module version from manifest: $Localversion"
+} else {
+    Write-Warning "Manifest file not found."
+    $Localversion = 0.0.0
+}
 
 try {
     $psd1Content = Invoke-RestMethod -Uri $remotePsd1Url -Headers @{ "User-Agent" = "PowerShell" }
@@ -22,7 +31,7 @@ try {
         Write-Host "Update available!"
 
         # Download
-        Write-Host "⬇Downloading $repoUrl..."
+        Write-Host "Downloading $repoUrl..."
         Invoke-WebRequest -Uri $repoUrl -OutFile $tempZip -UseBasicParsing
 
         # Unzip
@@ -49,6 +58,7 @@ try {
     Write-Warning "Failed to check remote version: ${$_}"
 }
 
-if (-not (Get-Module -Name BriteProvisioning)) {
+$Version = (Get-Module -Name $moduleName).Version
+if ($remoteVersion -gt $localVersion) {
     Import-Module $moduleName -Force
 }
