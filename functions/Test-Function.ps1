@@ -1,1 +1,3 @@
-Write-host "This Function is for testing Version 1.0.0"
+Function Test-Function {
+    Write-host "This Function is for testing Version 0.0.2"
+}
