@@ -1,7 +1,7 @@
 function Install-DWGTrueview {
 
     $DownloadURL = "https://efulfillment.autodesk.com/NetSWDLD/2024/ACD/9C02048D-D0DB-3E06-B903-89BD24380AAD/SFX/DWGTrueView_2024_English_64bit_dlm.sfx.exe"
-    $DownloadPath = "$Global:Basepath\Apps|DWGTrueView"
+    $DownloadPath = "$Global:Basepath\Apps\DWGTrueView"
     $DownloadFile = "$DownloadPath\DWGTrueView-Installer.exe"
     $SetupPath = "C:\Autodesk\DWGTrueView_2024_English_64bit_dlm\Setup.exe"
 
