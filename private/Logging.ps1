@@ -20,6 +20,6 @@ function Write-Log {
 }
 Function Start-PPKGLog ([String] $LogLabel) {
     Write-Host "Making a log file for debugging"
-        $LogPath = $Global:BasePath + "\PPKG\" + $LogLabel + ".log"
+        $LogPath = $Global:BasePath + "\Logs\" + $LogLabel + ".log"
         Start-Transcript -path $LogPath -Force -Append
 }
