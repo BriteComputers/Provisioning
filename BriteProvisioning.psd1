@@ -1,6 +1,6 @@
 @{
     RootModule        = 'BriteProvisioning.psm1'
-    ModuleVersion     = '0.0.7'
+    ModuleVersion     = '0.0.8'
     Author            = 'You'
     Description       = 'PowerShell module for provisioning and configuration tasks'
     PowerShellVersion = '5.1'

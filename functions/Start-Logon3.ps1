@@ -4,6 +4,8 @@ function Start-Logon3 {
 
     $progressPreference = 'silentlyContinue'
 
+    $Global:BasePath = "C:\ProgramData\Deployment"
+
     Start-PPKGLog Logon3
 
     Update-WindowTitle -PassNumber 3
