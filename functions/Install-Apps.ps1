@@ -38,7 +38,7 @@ Function Install-Apps{
             Install-ShareFile
             Install-ShareFilePlugin
             #VLC Install
-            Winget install XPDM1ZW6815MQM
+            Install-VLC
             Install-DWGTrueview
             #Install-GoToResolve
             #Install-VSOImageResizer..... maybe
