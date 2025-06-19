@@ -10,7 +10,7 @@ Function Set-RunOnce{
         [string]$Label
     )
 
-    $RunOnceValue = 'PowerShell.exe -ExecutionPolicy Bypass -File "' + $Global:BasePath + '\' + $Label + '.ps1"'
+    $RunOnceValue = 'PowerShell.exe -ExecutionPolicy Bypass -File "' + $Global:BasePath + '\PPKG\' + $Label + '.ps1"'
     Write-Host "Install After Reboot"
     Set-ItemProperty 'HKLM:\Software\Microsoft\Windows\CurrentVersion\RunOnce' -Name $Label -Value $RunOnceValue
     
