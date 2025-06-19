@@ -16,6 +16,7 @@ function Write-Log {
     $LogPath = "$script:LogRoot\$LogName.log"
     $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
     $logEntry = "[$timestamp] [$Type]  $Message"
+    Write-Host $logEntry
     Write-Output $logEntry | Out-File -FilePath $LogPath -Append -Encoding UTF8
 }
 Function Start-PPKGLog ([String] $LogLabel) {
