@@ -1,20 +1,18 @@
 function Start-Logon2 {
 
-    Start-Sleep -Seconds 15
-
     Write-Host "Import Functions"
 
     $progressPreference = 'silentlyContinue'
 
     $Global:BasePath = "C:\ProgramData\Deployment"
 
-    $global:SiteCode = $Config.Sitecode
-
     Start-PPKGLog Logon2
 
     Update-WindowTitle -PassNumber 2
 
-    $Config = Load-Config
+    $Config = Import-Config
+
+    $global:SiteCode = $Config.Sitecode
 
     $SecurePassword = $Config.Password | ConvertTo-SecureString
 
