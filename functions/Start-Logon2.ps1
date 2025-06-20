@@ -18,7 +18,7 @@ function Start-Logon2 {
 
     Install-Apps
 
-    Update-Windows -HideUpdates "Yes"
+    Update-Windows -HideCumulativeUpdates "Yes"
 
     Set-AutoLogon -Username $Config.Username -Password $SecurePassword
 
