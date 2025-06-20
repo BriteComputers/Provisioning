@@ -33,14 +33,13 @@ Function Install-Apps{
         }
         "455"{
             Install-Bluebeam
-            #Install-Citrix
+            Install-Citrix
             Install-AnyVideoConverter
             Install-ShareFile
             Install-ShareFilePlugin
-            #VLC Install
             Install-VLC
             Install-DWGTrueview
-            #Install-GoToResolve
+            Install-GoToResolve
             #Install-VSOImageResizer..... maybe
             #Install-eScreenz
             #Install-Navisworks

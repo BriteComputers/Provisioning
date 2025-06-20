@@ -1,11 +1,11 @@
-function Install-Chrome {
+function Install-GoToResolve {
     
-    $InstallerUrl = "https://dl.google.com/tag/s/dl/chrome/install/googlechromestandaloneenterprise64.msi"
+    $InstallerUrl = "https://cdn.console.gotoresolve.com/dtc/LMIResolveDesktopConsole-x64.msi"
     $DownloadPath = "C:\ProgramData\Deployment\Apps"
-    $InstallerFile = Join-Path -Path $DownloadPath -ChildPath "Chrome-Installer.msi"
+    $InstallerFile = Join-Path -Path $DownloadPath -ChildPath "GoToResolve-Installer.msi"
 
     # Start logging
-    Write-Log "Starting Chrome installation process."
+    Write-Log "Starting GoToResolve installation process."
 
     Write-Log "Creating directory ${DownloadPath} if it does not exist."
     if (-not (Test-Path $DownloadPath)) {
@@ -19,27 +19,27 @@ function Install-Chrome {
         }
     }
 
-    Write-Log "Downloading Chrome from $InstallerUrl"
+    Write-Log "Downloading GoToResolve from $InstallerUrl"
     $ProgressPreference = 'SilentlyContinue'
     try {
         Invoke-WebRequest -Uri $InstallerUrl -OutFile $InstallerFile
-        Write-Log "Chrome downloaded successfully to ${InstallerFile}."
+        Write-Log "GoToResolve downloaded successfully to ${InstallerFile}."
     } catch {
         $errorMessage = $_.Exception.Message
-        Write-Log "Failed to download Chrome: $errorMessage" -Type "ERROR"
+        Write-Log "Failed to download GoToResolve: $errorMessage" -Type "ERROR"
         throw
     }
 
-    Write-Log "Installing Chrome from ${InstallerFile}"
+    Write-Log "Installing GoToResolve from ${InstallerFile}"
     try {
         Start-Process msiexec.exe -ArgumentList "/i $InstallerFile /quiet" -Wait
-        Write-Log "Chrome installed successfully."
+        Write-Log "GoToResolve installed successfully."
     } catch {
         $errorMessage = $_.Exception.Message
-        Write-Log "Failed to install Chrome: $errorMessage" -Type "ERROR"
+        Write-Log "Failed to install GoToResolve: $errorMessage" -Type "ERROR"
         throw
     }
 
-    Write-Log "Chrome installation process completed."
+    Write-Log "GoToResolve installation process completed."
     
 }
