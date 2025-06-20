@@ -34,6 +34,17 @@ function Update-Windows {
 
     $progressPreference = 'SilentlyContinue'
 
+
+    # Get available updates
+    try {
+        Write-Log "Retrieving available updates..."
+        $availableUpdates = Get-WindowsUpdate -Verbose
+        Write-Log "Retrieved $($availableUpdates.Count) updates."
+    } catch {
+        Write-Log "Failed to retrieve available updates: $_" -Type "ERROR"
+        return
+    }
+
     if ($HideCumulativeUpdates -eq "Yes") {
         foreach ($update in $availableUpdates) {
             Write-Log "Checking of $(Update.Title) Contains the words Cumulative Update"
@@ -51,16 +62,6 @@ function Update-Windows {
         # Refresh update list after hiding
         $availableUpdates = Get-WindowsUpdate -AcceptAll -IgnoreUserInput -MicrosoftUpdate
         Write-Log "Refreshed update list after hiding cumulative updates."
-    }
-
-    # Get available updates
-    try {
-        Write-Log "Retrieving available updates..."
-        $availableUpdates = Get-WindowsUpdate -AcceptAll -IgnoreUserInput -MicrosoftUpdate -Verbose
-        Write-Log "Retrieved $($availableUpdates.Count) updates."
-    } catch {
-        Write-Log "Failed to retrieve available updates: $_" -Type "ERROR"
-        return
     }
 
     # Format and log update info before install
