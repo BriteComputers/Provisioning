@@ -32,19 +32,9 @@ function Update-Windows {
 
     $progressPreference = 'SilentlyContinue'
 
-    # Get available updates
-    try {
-        Write-Log "Retrieving available updates..."
-        $availableUpdates = Get-WindowsUpdate -AcceptAll -IgnoreUserInput -MicrosoftUpdate -Verbose
-        Write-Log "Retrieved $($availableUpdates.Count) updates."
-    } catch {
-        Write-Log "Failed to retrieve available updates: $_" -Type "ERROR"
-        return
-    }
-
-    # Optionally hide cumulative updates
     if ($HideCumulativeUpdates -eq "Yes") {
         foreach ($update in $availableUpdates) {
+            Write-Log "Checking of $(Update.Title) Contains the words Cumulative Update"
             if ($update.Title -like "*Cumulative Update*") {
                 $kb = ($update.KBArticleIDs)[0]
                 try {
@@ -61,6 +51,16 @@ function Update-Windows {
         Write-Log "Refreshed update list after hiding cumulative updates."
     }
 
+    # Get available updates
+    try {
+        Write-Log "Retrieving available updates..."
+        $availableUpdates = Get-WindowsUpdate -AcceptAll -IgnoreUserInput -MicrosoftUpdate -Verbose
+        Write-Log "Retrieved $($availableUpdates.Count) updates."
+    } catch {
+        Write-Log "Failed to retrieve available updates: $_" -Type "ERROR"
+        return
+    }
+
     # Format and log update info before install
     $formattedUpdates = $availableUpdates | Format-Table `
         @{Label="Status"; Expression={$_.Status}}, `
@@ -68,7 +68,7 @@ function Update-Windows {
         @{Label="SizeMB"; Expression={ "{0:N0}" -f ($_.MaxDownloadSize / 1MB) }}, `
         @{Label="Title"; Expression={$_.Title}} -AutoSize | Out-String
 
-    $updateListLog = "$logDir\Updates_$(Get-Date -Format 'yyyy-MM-dd_HH-mm-ss').txt"
+    $updateListLog = "$Global:BasePath\Logs\Updates_$(Get-Date -Format 'yyyy-MM-dd_HH-mm-ss').Log"
     $formattedUpdates | Set-Content -Path $updateListLog
     Write-Log "Available updates logged to $updateListLog"
 
