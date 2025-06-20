@@ -30,6 +30,8 @@ function Update-Windows {
         Write-Log "Could not initialize Windows Update service or source: $_" -Type "ERROR"
     }
 
+    Write-Log $HideCumulativeUpdates
+
     $progressPreference = 'SilentlyContinue'
 
     if ($HideCumulativeUpdates -eq "Yes") {
