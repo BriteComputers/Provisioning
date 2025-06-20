@@ -47,8 +47,8 @@ function Update-Windows {
 
     if ($HideCumulativeUpdates -eq "Yes") {
         foreach ($update in $availableUpdates) {
-            Write-Log "Checking of $(Update.Title) Contains the words Cumulative Update"
-            if ($update.Title -like "*Cumulative Update*") {
+            Write-Log "Checking of $($Update.Title) Contains the words Cumulative Update"
+            if ($update.Title -like "*2025-*Cumulative Update*for Windows 11 Version 24H2*") {
                 $kb = ($update.KBArticleIDs)[0]
                 try {
                     Hide-WindowsUpdate -KBArticleID $kb -AcceptAll
