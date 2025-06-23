@@ -14,8 +14,8 @@ Function Install-O365{
     Write-Host "Extracting Setup.exe file"
     Start-Process $DownloadFile -ArgumentList "/quiet /extract:$DownloadPath" -wait
 
-    $O365ConfigDest = "C:\IT\O365\configuration-Office365-x64.xml"
+    $DownloadPath = "C:\IT\O365\configuration-Office365-x64.xml"
     Write-Host "Installing Office"
-    & C:\IT\O365\setup.exe /configure $O365ConfigDest | Wait-Process
+    & $DownloadPath\setup.exe /configure $O365ConfigDest | Wait-Process
 
 }
