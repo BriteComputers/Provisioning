@@ -24,7 +24,7 @@ function Start-Logon1 {
 
     Set-ESTTime
 
-    Update-Windows -HideUpdates "Yes"
+    Update-Windows -HideCumulativeUpdates "Yes"
 
     Set-AutoLogon -Username $Config.Username -Password $SecurePassword
 
