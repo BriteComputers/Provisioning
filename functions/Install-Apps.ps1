@@ -29,6 +29,8 @@ Function Install-Apps{
             Install-7Zip
         }
         "374" {
+            Install-7Zip
+            Install-AzureVPN
             
         }
         "455"{

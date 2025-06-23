@@ -34,7 +34,6 @@ function Update-Windows {
 
     $progressPreference = 'SilentlyContinue'
 
-
     # Get available updates
     try {
         Write-Log "Retrieving available updates..."
