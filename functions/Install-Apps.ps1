@@ -44,7 +44,7 @@ Function Install-Apps{
             Install-GoToResolve
             #Install-VSOImageResizer..... maybe
             #Install-eScreenz
-            #Install-Navisworks
+            Install-Navisworks
         }
 
         default {
