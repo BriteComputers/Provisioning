@@ -19,7 +19,5 @@ function Start-OMConfig {
     Install-7Zip
 
     Update-Windows -HideCumulativeUpdates "Yes"
-
-    Restart-Computer -Force 
     
 }
