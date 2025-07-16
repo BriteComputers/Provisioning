@@ -14,6 +14,6 @@ function Install-Agent {
     $progressPreference = 'silentlyContinue'
     Invoke-Webrequest $AgentDownload -OutFile $DownloadPath
     
-    Start-Process $DownloadPath -ArgumentList "/s /v"" /qn CUSTOMERID=$SiteCode REGISTRATION_TOKEN=$Token CUSTOMERSPECIFIC=1 SERVERPROTOCOL=HTTPS SERVERADDRESS=rmm.$Domain SERVERPORT=443""" -wait
+    Start-Process $DownloadPath -ArgumentList "/s /v"" /qn CUSTOMERID=$Global:SiteCode REGISTRATION_TOKEN=$Token CUSTOMERSPECIFIC=1 SERVERPROTOCOL=HTTPS SERVERADDRESS=rmm.$Domain SERVERPORT=443""" -wait
 
 }

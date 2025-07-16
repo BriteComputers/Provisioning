@@ -8,6 +8,8 @@ function Start-OMConfig {
 
     $Global:BasePath = "C:\ProgramData\Deployment"
 
+    $global:SiteCode = 274
+
     Install-NotePadPlusPlus
 
     Install-AdvancedIPScanner
