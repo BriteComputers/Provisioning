@@ -1,5 +1,5 @@
 Function Install-AdvancedIPScanner{
 
-    Install-StoreApp -PackageID "Famatech.AdvancedIPScanner" -Log "AdvancedIpScanWingetInstall.log"
+    Winget install --id Famatech.AdvancedIPScanner -e --silent --accept-source-agreements --accept-package-agreements
     
 }

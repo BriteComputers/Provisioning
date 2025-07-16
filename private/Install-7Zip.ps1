@@ -1,3 +1,5 @@
+Function Install-7Zip{
+
 $LogPath = "C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\7ZipInstall.log"
 $DowloadPath = "https://7-zip.org/a/7z2301-x64.exe"
 $TempPath = "C:\7Zip-Temp"
@@ -16,3 +18,5 @@ Start-Sleep -Seconds 5
 Remove-Item $TempPath -Force -Recurse
 
 Stop-transcript
+
+}
