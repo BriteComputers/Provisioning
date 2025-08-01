@@ -40,7 +40,7 @@ Function Install-Apps{
             Install-ShareFile
             Install-ShareFilePlugin
             Install-VLC
-            Install-DWGTrueview
+            #Install-DWGTrueview
             Install-GoToResolve
             #Install-VSOImageResizer..... maybe
             #Install-eScreenz
