@@ -4,7 +4,7 @@ function Install-Navisworks {
     $DownloadPath = "$Global:Basepath\Apps\Navisworks"
     $DownloadFile = "$DownloadPath\Navisworks-Installer.exe"
 
-    Write-Log "Starting DWG TrueView installation."
+    Write-Log "Starting Navisworks installation."
 
     # Ensure download directory exists
     if (!(Test-Path $DownloadPath)) {
@@ -17,22 +17,22 @@ function Install-Navisworks {
         }
     }
 
-    Write-Log "Downloading DWG TrueView from $DownloadURL"
+    Write-Log "Downloading Navisworks from $DownloadURL"
     $ProgressPreference = 'SilentlyContinue'
     try {
         Invoke-WebRequest $DownloadURL -OutFile $DownloadFile
-        Write-Log "DWG TrueView downloaded to $DownloadFile."
+        Write-Log "Navisworks downloaded to $DownloadFile."
     } catch {
-        Write-Log "Failed to download DWG TrueView: $($_.Exception.Message)" -Type "ERROR"
+        Write-Log "Failed to download Navisworks: $($_.Exception.Message)" -Type "ERROR"
         return
     }
 
-    Write-Log "Running DWG TrueView installer from $DownloadFile"
+    Write-Log "Running Navisworks installer from $DownloadFile"
     try {
-        Start-Process $DownloadFile -ArgumentList "-q" -Wait
-        Write-Log "DWG TrueView installed successfully."
+        Start-Process $DownloadFile -ArgumentList "--silent" -Wait
+        Write-Log "Navisworks installed successfully."
     } catch {
-        Write-Log "Failed to install DWG TrueView: $($_.Exception.Message)" -Type "ERROR"
+        Write-Log "Failed to install Navisworks: $($_.Exception.Message)" -Type "ERROR"
         return
     }
 
