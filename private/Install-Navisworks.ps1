@@ -29,7 +29,7 @@ function Install-Navisworks {
 
     Write-Log "Running Navisworks installer from $DownloadFile"
     try {
-        Start-Process $DownloadFile -ArgumentList "--silent" -Wait
+        Start-Process $DownloadFile -ArgumentList "-q" -Wait
         Write-Log "Navisworks installed successfully."
     } catch {
         Write-Log "Failed to install Navisworks: $($_.Exception.Message)" -Type "ERROR"
