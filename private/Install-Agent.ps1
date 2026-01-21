@@ -5,7 +5,7 @@ function Install-Agent {
     )
     $TempPath = "$Global:BasePath\Apps\Agent"
     $DownloadPath = "$TempPath\WindowsAgentSetup.exe"
-    $AgentDownload = "https://rmm.$Domain/download/2025.4.0.16/winnt/N-central/WindowsAgentSetup.exe"
+    $AgentDownload = "https://rmm.$Domain/download/2025.4.1.2/winnt/N-central/WindowsAgentSetup.exe"
 
     if (!(Test-Path $TempPath)) {
         New-Item -ItemType "Directory" -Path $TempPath
