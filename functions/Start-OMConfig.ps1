@@ -22,6 +22,8 @@ function Start-OMConfig {
 
     Install-7Zip
 
+    Install-VirtualDisplayDriver
+
     #Update-Windows -HideCumulativeUpdates "Yes"
 
     Set-executionPolicy -Scope Process -ExecutionPolicy Restricted -Force
