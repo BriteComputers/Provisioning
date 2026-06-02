@@ -13,7 +13,7 @@ function Install-Agent {
         [string]$BasePath = "C:\ProgramData\Deployment",
 
         [Parameter(Mandatory=$false)]
-        [string]$SiteCode = 274
+        [string]$SiteCode = "274"
     );
     
     $TempPath = "$Global:BasePath\Apps\Agent"
