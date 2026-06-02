@@ -10,10 +10,10 @@ function Install-Agent {
         [string]$Domain,
 
         [Parameter(Mandatory=$false)]
-        [string]$BasePath = "C:\ProgramData\Deployment",
+        [string]$Global:BasePath = "C:\ProgramData\Deployment",
 
         [Parameter(Mandatory=$false)]
-        [string]$SiteCode = "274"
+        [string]$Global:SiteCode = "274"
     );
 
     Write-Host "Installing N-able N-central Agent..." -ForegroundColor Cyan;
