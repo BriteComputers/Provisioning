@@ -22,7 +22,7 @@ function Start-OMConfig {
 
     Install-7Zip
 
-    Install-VirtualDisplayDriver
+    #Install-VirtualDisplayDriver
 
     #Update-Windows -HideCumulativeUpdates "Yes"
 
