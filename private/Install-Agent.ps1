@@ -19,7 +19,7 @@ function Install-Agent {
     Write-Log "Starting agent installation for domain: $Domain with site code: $SiteCode" -Type "INFO"
     $TempPath = "$BasePath\Apps\Agent"
     $DownloadPath = "$TempPath\WindowsAgentSetup.exe"
-    $AgentDownload = "https://rmm.$Domain/download/2026.2.0.15/winnt/N-central/WindowsAgentSetup.exe"
+    $AgentDownload = "https://rmm.$Domain/download/current/winnt/N-central/WindowsAgentSetup.exe"
 
     Write-Log "Ensuring temporary directory exists at: $TempPath" -Type "INFO"
     if (!(Test-Path $TempPath)) {
