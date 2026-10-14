@@ -22,7 +22,7 @@ Function Install-Putty{
     Write-Log "Downloading Putty from $InstallerUrl"
     $ProgressPreference = 'SilentlyContinue'
     try {
-        Invoke-WebRequest -Uri $InstallerUrl -OutFile $InstallerFile
+        Invoke-WebRequest -Uri $InstallerUrl -OutFile $InstallerFile -UseBasicParsing
         Write-Log "Putty downloaded successfully to ${InstallerFile}."
     } catch {
         $errorMessage = $_.Exception.Message

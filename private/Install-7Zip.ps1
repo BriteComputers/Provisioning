@@ -11,7 +11,7 @@ Start-Transcript -path $LogPath -Force -Append
 Write-Host "7Zip is not installed. Downloading latest version..."
 mkdir  $TempPath
 $ProgressPreference = 'SilentlyContinue'
-Invoke-WebRequest $DowloadPath -OutFile $DownloadPath
+Invoke-WebRequest $DowloadPath -OutFile $DownloadPath -UseBasicParsing
 Write-Host "7Zip is downloaded. Installing..."
 Start-Process $DownloadPath -ArgumentList "/S" -wait
 Start-Sleep -Seconds 5

@@ -22,7 +22,7 @@ function Install-Chrome {
     Write-Log "Downloading Chrome from $InstallerUrl"
     $ProgressPreference = 'SilentlyContinue'
     try {
-        Invoke-WebRequest -Uri $InstallerUrl -OutFile $InstallerFile
+        Invoke-WebRequest -Uri $InstallerUrl -OutFile $InstallerFile -UseBasicParsing
         Write-Log "Chrome downloaded successfully to ${InstallerFile}."
     } catch {
         $errorMessage = $_.Exception.Message
