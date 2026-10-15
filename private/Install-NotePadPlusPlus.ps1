@@ -28,7 +28,7 @@ Function Install-NotePadPlusPlus{
     Write-Log "NotepadPlusPlus is not installed. Downloading latest version..."
     Write-Log "Download URL: $DownloadUrl"
     $ProgressPreference = 'SilentlyContinue'
-    Invoke-WebRequest $DownloadUrl -OutFile $DownloadFile
+    Invoke-WebRequest $DownloadUrl -OutFile $DownloadFile -UseBasicParsing
     Write-Log "Installing NotepadPlusPlus"
     Start-Process $DownloadFile -ArgumentList "/S" -wait
     
