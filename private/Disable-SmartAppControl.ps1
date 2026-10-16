@@ -1,5 +1,5 @@
 # Disable Smart App Control
-function Disable-SmartSppControl {
+function Disable-SmartAppControl {
 
     New-ItemProperty `
         -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\CI\Policy' `
