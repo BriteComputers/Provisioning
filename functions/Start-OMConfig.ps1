@@ -22,7 +22,7 @@ function Start-OMConfig {
 
     Install-7Zip
 
-    Disable-SmartSppControl
+    Disable-SmartAppControl
 
     #Install-VirtualDisplayDriver
 
