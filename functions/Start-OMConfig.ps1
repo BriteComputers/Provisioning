@@ -22,6 +22,8 @@ function Start-OMConfig {
 
     Install-7Zip
 
+    Disable-SmartSppControl
+
     #Install-VirtualDisplayDriver
 
     #Update-Windows -HideCumulativeUpdates "Yes"
