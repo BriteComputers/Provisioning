@@ -24,6 +24,8 @@ function Start-OMConfig {
 
     Disable-SmartAppControl
 
+    Enable-RemoteDesktop
+
     #Install-VirtualDisplayDriver
 
     #Update-Windows -HideCumulativeUpdates "Yes"
